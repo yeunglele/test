@@ -21,7 +21,7 @@ sed -i 's/luci-theme-bootstrap/luci-theme-design/g' feeds/luci/collections/luci/
 
 #rm -rf feeds/luci/themes/luci-theme-argon
 
-git clone --depth=1 -b main https://github.com/fw876/helloworld.git package/helloworld
+#git clone --depth=1 -b main https://github.com/fw876/helloworld.git package/helloworld
 
 git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
 
