@@ -19,6 +19,8 @@ sed -i 's/luci-theme-bootstrap/luci-theme-design/g' feeds/luci/collections/luci/
 # Modify hostname
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
 
+sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
+
 #rm -rf feeds/luci/themes/luci-theme-argon
 
 #git clone --depth=1 -b main https://github.com/fw876/helloworld.git package/helloworld
