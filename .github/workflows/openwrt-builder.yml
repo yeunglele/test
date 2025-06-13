@@ -84,17 +84,23 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
+        
+    - name: 缓存加速
+      if: env.CACHEWRTBUILD_SWITCH == 'true'
+      uses: stupidloud/cachewrtbuild@main
+      with:
+        ccache: 'true'
+        mixkey: "${{ env.TARGET_PROFILE }}"
+        prefix: ${{ github.workspace }}/openwrt
 
-    - name: Download package
+    - name: 下载软件包
       id: package
       run: |
         cd openwrt
         make defconfig
         make download -j8
-        find dl -size -1024c -exec ls -l {} \;
-        find dl -size -1024c -exec rm -f {} \;
 
-    - name: Compile the firmware
+    - name: 编译固件
       id: compile
       run: |
         cd openwrt
